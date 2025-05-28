@@ -1,0 +1,1 @@
+web: python -m src.agent.__main__ --host 0.0.0.0 --port $PORT
