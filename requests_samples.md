@@ -1,7 +1,7 @@
 ### sync call
 
 ```
-curl -X POST http://localhost:10000/ \
+curl -X POST http://0.0.0.0:8080/ \
   -H "Content-Type: application/json" \
   -d '{
     "jsonrpc": "2.0",
@@ -31,7 +31,7 @@ curl -X POST http://localhost:10000/ \
 ##### first call
 
 ```
-curl -X POST http://localhost:10000/ \
+curl -X POST http://0.0.0.0:8080/ \
   -H "Content-Type: application/json" \
   -d '{
     "jsonrpc": "2.0",
@@ -56,7 +56,7 @@ curl -X POST http://localhost:10000/ \
 ##### second call
 
 ```
-curl -X POST http://localhost:10000/ \
+curl -X POST http://0.0.0.0:8080/ \
   -H "Content-Type: application/json" \
   -d '{
     "jsonrpc": "2.0",
@@ -83,7 +83,7 @@ curl -X POST http://localhost:10000/ \
 ### streaming
 
 ```
-curl -X POST http://localhost:10000/ \
+curl -X POST http://0.0.0.0:8080/ \
   -H "Content-Type: application/json" \
   -d '{
     "jsonrpc": "2.0",

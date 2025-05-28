@@ -2,6 +2,7 @@ import logging
 import click
 import httpx
 import uvicorn
+import os
 
 from a2a.server.apps import A2AStarletteApplication
 from a2a.server.request_handlers import DefaultRequestHandler
@@ -23,8 +24,8 @@ logger = logging.getLogger(__name__)
 
 
 @click.command()
-@click.option('--host', 'host', default='localhost')
-@click.option('--port', 'port', default=10000)
+@click.option('--host', 'host', default='0.0.0.0')
+@click.option('--port', 'port', default=lambda: int(os.getenv("PORT", 8080)), type=int)
 def main(host, port):
     """Starts the Currency Agent server."""
     try:
@@ -39,7 +40,7 @@ def main(host, port):
         agent_card = AgentCard(
             name='Currency Agent',
             description='Helps with exchange rates for currencies',
-            url=f'http://{host}:{port}/',
+            url='/',
             version='1.0.0',
             defaultInputModes=CurrencyAgent.SUPPORTED_CONTENT_TYPES,
             defaultOutputModes=CurrencyAgent.SUPPORTED_CONTENT_TYPES,
